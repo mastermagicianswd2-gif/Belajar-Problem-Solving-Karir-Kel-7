@@ -406,19 +406,72 @@
                     </p>
                 </div>
 
-                <!-- Stats Summary -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 bg-slate-50/80 rounded-2xl border border-slate-200">
-                    <div class="p-3">
-                        <span class="text-[11px] text-slate-500 font-semibold block">Total Skor</span>
-                        <span id="finalScore" class="text-2xl font-black text-teal-700">100 Pts</span>
+                <!-- Status Persentase Keselarasan Solusi & Metrik -->
+                <div class="p-5 rounded-2xl bg-gradient-to-br from-teal-50 via-emerald-50 to-white border-2 border-teal-200 text-left space-y-3.5 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <span class="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">Evaluasi Pemecahan Masalah</span>
+                            <h3 class="text-lg font-black text-slate-900 flex items-center space-x-2">
+                                <span>Persentase Keselarasan Solusi:</span>
+                                <span id="alignmentPercentage" class="text-2xl text-teal-700">100%</span>
+                            </h3>
+                        </div>
+                        <span id="alignmentStatusBadge" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-teal-600 text-white shadow-xs">
+                            Sangat Selaras & Solutif 🌟
+                        </span>
                     </div>
-                    <div class="p-3">
-                        <span class="text-[11px] text-slate-500 font-semibold block">Predikat Diskusi</span>
-                        <span id="finalBadge" class="text-xs sm:text-sm font-bold text-amber-600">Pemecah Masalah Hebat</span>
+
+                    <!-- Progress Bar Keselarasan -->
+                    <div class="w-full bg-slate-200/90 rounded-full h-3 overflow-hidden">
+                        <div id="alignmentProgressBar" class="bg-gradient-to-r from-teal-500 to-emerald-500 h-3 rounded-full transition-all duration-700" style="width: 100%"></div>
                     </div>
-                    <div class="col-span-2 sm:col-span-1 p-3">
-                        <span class="text-[11px] text-slate-500 font-semibold block">Ketepatan Jawaban</span>
-                        <span id="finalAccuracy" class="text-2xl font-black text-emerald-600">100%</span>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-center">
+                        <div class="p-2.5 rounded-xl bg-white/90 border border-teal-100">
+                            <span class="text-[10px] text-slate-500 font-semibold block">Total Skor Poin</span>
+                            <span id="finalScore" class="text-lg font-black text-teal-800">100 Pts</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-white/90 border border-teal-100">
+                            <span class="text-[10px] text-slate-500 font-semibold block">Predikat Diskusi</span>
+                            <span id="finalBadge" class="text-xs font-bold text-amber-600 truncate block">Pemecah Masalah Hebat</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 p-2.5 rounded-xl bg-white/90 border border-teal-100">
+                            <span class="text-[10px] text-slate-500 font-semibold block">Ketepatan Langkah</span>
+                            <span id="finalAccuracy" class="text-lg font-black text-emerald-700">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rangkuman Arah Karir & Jalan Tengah Terbaik bagi Tokoh (Layar Depan) -->
+                <div class="p-5 rounded-2xl bg-white border border-teal-200 text-left space-y-3.5 shadow-sm">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2.5">
+                        <span class="text-xl">🎯</span>
+                        <div>
+                            <h4 class="font-extrabold text-sm sm:text-base text-slate-900 leading-tight">
+                                Rangkuman Pemecahan Masalah Tokoh
+                            </h4>
+                            <p class="text-[11px] text-slate-500">Arah karir impian dan kompromi jalan tengah terbaik yang disepakati</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="p-3.5 rounded-xl bg-teal-50/70 border border-teal-200">
+                            <div class="text-[11px] font-black uppercase tracking-wider text-teal-900 mb-1 flex items-center space-x-1">
+                                <span>🚀 Arah Karir yang Direkomendasikan:</span>
+                            </div>
+                            <p id="summaryCareerPath" class="text-slate-800 font-bold leading-relaxed">
+                                Memuat rekomendasi arah karir tokoh...
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200">
+                            <div class="text-[11px] font-black uppercase tracking-wider text-amber-900 mb-1 flex items-center space-x-1">
+                                <span>⚖️ Jalan Tengah Terbaik bagi Tokoh:</span>
+                            </div>
+                            <p id="summaryBestCompromise" class="text-slate-800 leading-relaxed font-medium">
+                                Memuat jalan tengah terbaik bagi tokoh...
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -436,7 +489,7 @@
                     <p class="text-xs text-slate-600">
                         Kesimpulan ini otomatis dirangkum dari hasil 5 langkah yang baru saja kalian diskusikan (kalian bebas mengedit atau menambahkannya):
                     </p>
-                    <textarea id="personalReflectionInput" rows="8" class="w-full p-3.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none leading-relaxed font-sans" placeholder="Kesimpulan kelompok akan otomatis muncul di sini..."></textarea>
+                    <textarea id="personalReflectionInput" rows="9" class="w-full p-3.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none leading-relaxed font-sans" placeholder="Kesimpulan kelompok akan otomatis muncul di sini..."></textarea>
                     
                     <div class="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
                         <div class="flex items-center space-x-1.5 text-xs text-slate-500">
@@ -535,6 +588,8 @@
                 class: "Kelas XI SMA - Peminatan IPA",
                 tag: "Suka Menggambar vs Harapan Orang Tua",
                 avatar: "🎨",
+                careerPath: "Desain Komunikasi Visual (DKV), Ilustrator Digital / Desainer Grafis Industri Kreatif Modern",
+                bestCompromise: "Memilih jurusan DKV sebagai titik temu antara minat seni grafis dengan kebutuhan industri digital masa kini, lalu membicarakannya dengan sopan kepada orang tua sambil menunjukkan portofolio karya dan data prospek kerja.",
                 quote: "Orang tua saya menuntut saya kuliah Teknik Informatika karena kata mereka gajinya besar dan terjamin. Tapi minat terbesar saya ada di ilustrasi grafis dan seni visual modern. Kalau saya tolak, saya takut dicap anak membangkang, tapi kalau dipaksakan, saya takut stres dan putus kuliah.",
                 hobbies: "Gambar komik digital, bikin poster, edit ilustrasi di HP/laptop",
                 grades: "Seni Budaya 94, Bahasa Inggris 88, Matematika 74",
@@ -711,6 +766,8 @@
                 class: "Kelas XII SMK - Jurusan Bisnis Daring",
                 tag: "Minder & Merasa Tidak Punya Bakat",
                 avatar: "🔍",
+                careerPath: "Administrasi Perkantoran, Manajemen Layanan Publik, atau Tata Kelola Data/Arsip",
+                bestCompromise: "Menyadari bahwa ketelitian dan kerapian kerja adalah kekuatan karir yang hebat, lalu mantap memilih bidang administrasi atau manajemen bisnis tanpa minder melihat prestasi panggung teman lain.",
                 quote: "Saya merasa minder dan bingung mau lanjut ke mana setelah lulus. Teman-teman sekelas saya sudah punya bakat hebat dan rencana jelas, sedangkan nilai saya biasa-biasa saja rata-rata 80, tidak punya piala atau prestasi menonjol. Saya merasa diri saya tidak punya kelebihan apa-apa untuk masa depan.",
                 hobbies: "Suka merapikan barang, catatan sekolah selalu rapi, senang mendengarkan curhat kawan",
                 grades: "Nilai rata-rata rapor konsisten 80 (rapi, stabil, dan teliti)",
@@ -887,6 +944,8 @@
                 class: "Kelas XII SMA - Peminatan IPS",
                 tag: "Ikut-Ikutan Teman Tongkrongan",
                 avatar: "🚀",
+                careerPath: "Manajemen Logistik, Perdagangan Ritel, atau Bisnis Ekspedisi Digital",
+                bestCompromise: "Teguh memilih program studi Manajemen Logistik sesuai minat wirausaha dan kemampuan praktisnya, sambil tetap menjaga hubungan pertemanan secara santai tanpa terjebak dorongan ikut-ikutan (FOMO).",
                 quote: "Teman-teman satu tongkrongan saya semuanya kompak mau masuk jurusan Hubungan Internasional karena kelihatannya keren dan hits. Sebenarnya saya lebih tertarik mengelola bisnis logistik dan toko kelontong keluarga, tapi kalau saya ambil jurusan berbeda, saya takut dikucilkan dan dibilang tidak setia kawan.",
                 hobbies: "Suka atur susunan barang toko, cek buku catatan uang kas, bantu bongkar muatan barang",
                 grades: "Ekonomi 92, Geografi 86, Bahasa Inggris 65",
@@ -1114,6 +1173,8 @@
 
         function generateAutoConclusion(groupData, choicesRecord) {
             const groupName = document.getElementById('inputGroupName')?.value.trim() || `Kelompok ${groupData.groupNumber}`;
+            const correctCount = choicesRecord.filter(c => c.isCorrect).length;
+            const alignmentPercentage = Math.round((correctCount / 5) * 100);
             
             const step1 = choicesRecord[0]?.chosenText?.replace(/^[A-D]\.\s*/, '') || "-";
             const step2 = choicesRecord[1]?.chosenText?.replace(/^[A-D]\.\s*/, '') || "-";
@@ -1121,13 +1182,18 @@
             const step4 = choicesRecord[3]?.chosenText?.replace(/^[A-D]\.\s*/, '') || "-";
             const step5 = choicesRecord[4]?.chosenText?.replace(/^[A-D]\.\s*/, '') || "-";
 
-            return `Berdasarkan hasil musyawarah ${groupName} mengenai Kasus ${groupData.name}:\n\n` +
-                `1. Masalah Utama: ${step1}\n` +
-                `2. Pilihan Solusi: ${step2}\n` +
-                `3. Pertimbangan Untung-Rugi: ${step3}\n` +
-                `4. Keputusan Terbaik: ${step4}\n` +
-                `5. Rencana Aksi Nyata: ${step5}\n\n` +
-                `💡 Pelajaran untuk Karir Kami Sendiri:\n${groupData.personalLesson}`;
+            return `KESIMPULAN PEMECAHAN MASALAH KARIR (${groupName.toUpperCase()})\n` +
+                `Tokoh Kasus: ${groupData.name} (${groupData.class})\n` +
+                `Status Keselarasan Solusi: ${alignmentPercentage}%\n\n` +
+                `🎯 RANGKUMAN ARAH KARIR TOKOH:\n${groupData.careerPath}\n\n` +
+                `⚖️ JALAN TENGAH TERBAIK BAGI TOKOH:\n${groupData.bestCompromise}\n\n` +
+                `📋 RANGKUMAN ALUR 5 LANGKAH PROBLEM SOLVING:\n` +
+                `1. Identifikasi Masalah: ${step1}\n` +
+                `2. Cari Alternatif Solusi: ${step2}\n` +
+                `3. Timbang Untung Rugi: ${step3}\n` +
+                `4. Ambil Keputusan Terbaik: ${step4}\n` +
+                `5. Susun Rencana Aksi: ${step5}\n\n` +
+                `💡 PELAJARAN UNTUK KARIR KAMI SENDIRI:\n${groupData.personalLesson}`;
         }
 
         function regenerateAutoConclusion() {
@@ -1440,6 +1506,29 @@
             const correctCount = groupChoicesRecord.filter(c => c.isCorrect).length;
             const accuracy = Math.round((correctCount / 5) * 100);
             document.getElementById('finalAccuracy').innerText = `${accuracy}% Tepat`;
+
+            // Update Status Persentase Keselarasan Solusi
+            const alignElem = document.getElementById('alignmentPercentage');
+            const alignBadge = document.getElementById('alignmentStatusBadge');
+            const alignBar = document.getElementById('alignmentProgressBar');
+            if (alignElem) alignElem.innerText = `${accuracy}%`;
+            if (alignBar) alignBar.style.width = `${accuracy}%`;
+
+            let statusLabel = "Sangat Selaras & Solutif 🌟";
+            if (accuracy >= 80) {
+                statusLabel = "Sangat Selaras & Solutif 🌟";
+            } else if (accuracy >= 60) {
+                statusLabel = "Selaras & Cukup Realistis 🤝";
+            } else {
+                statusLabel = "Perlu Penajaman Bersama 💡";
+            }
+            if (alignBadge) alignBadge.innerText = statusLabel;
+
+            // Update Rangkuman Arah Karir & Jalan Tengah Tokoh
+            const careerElem = document.getElementById('summaryCareerPath');
+            const compromiseElem = document.getElementById('summaryBestCompromise');
+            if (careerElem) careerElem.innerText = currentGroup.careerPath;
+            if (compromiseElem) compromiseElem.innerText = currentGroup.bestCompromise;
 
             const reflectionArea = document.getElementById('personalReflectionInput');
             if (reflectionArea) {
